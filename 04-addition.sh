@@ -1,6 +1,7 @@
 #!/bin/bash
 
-read NUMBER1
-read NUMBER2
+read -m "Enter Number1" NUMBER1
+read -m"Entere Number2" NUMBER2
 
 SUM=$(($NUMBER1+$NUMBER2))
+echo "SUM is: $SUM"
