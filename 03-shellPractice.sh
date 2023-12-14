@@ -21,7 +21,8 @@ echo "################################################"
 
 STR1="Saiteja"
 STR2="Govindaram"
+NUMBER1=123
 echo "\$STR1+\$STR2: $STR1+$STR2"
 echo "\$STR1\$STR2: $STR1$STR2"
 echo "\$STR1 \$STR2: $STR1 $STR2"
-echo "\$STR1+122: $STR1+123"
+echo "\$STR1+\$NUMBER1: $STR1+$NUMBER1"
