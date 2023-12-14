@@ -15,3 +15,4 @@ then
     echo "ERROR:: Installing MySQL"
 else
     echo "SUCCESS:: Installing MySQL"
+fi
