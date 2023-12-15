@@ -2,6 +2,10 @@
 
 ID=$(id -u)
 
+TIMESTAMP=$(date +%F-%T)
+LOGFILE=/tmp/$0-$TIMESTAMP.log
+
+
 validate(){
     if [ $1 -ne 0 ]
     then
@@ -17,5 +21,5 @@ then
     exit 1  #exit status 0 is success, we can this exit status through $?
 fi
 
-yum install mysql -y
+yum install mysql -y > $LOGFILE
 validate $? "Installing MySQL"
