@@ -2,6 +2,15 @@
 
 ID=$(id -u)
 
+validate(){
+    if [ $1 -ne 0 ]
+    then
+        echo "ERROR:: $2"
+    else
+        echo "SUCCESS:: $2"
+    fi
+}
+
 if [ $ID -ne 0 ]
 then    
     echo "Not Allowed to run, please run as root user"
@@ -9,10 +18,4 @@ then
 fi
 
 yum install mysql -y
-
-if [ $? -ne 0 ]
-then
-    echo "ERROR:: Installing MySQL"
-else
-    echo "SUCCESS:: Installing MySQL"
-fi
+validate $? "Installing MySQL"
