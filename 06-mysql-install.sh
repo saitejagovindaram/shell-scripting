@@ -23,3 +23,6 @@ fi
 
 yum install mysql -y > $LOGFILE
 validate $? "Installing MySQL"
+
+yum install httpd -y > $LOGFILE
+validate $? "Installing httpd
