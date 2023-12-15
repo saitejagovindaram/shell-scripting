@@ -21,8 +21,8 @@ then
     exit 1  #exit status 0 is success, we can this exit status through $?
 fi
 
-yum install mysql -y > $LOGFILE
+yum install mysql -y &>> $LOGFILE
 validate $? "Installing MySQL"
 
-yum install httpd -y > $LOGFILE
-validate $? "Installing httpd
+yum install httpd -y &>> $LOGFILE
+validate $? "Installing httpd"
