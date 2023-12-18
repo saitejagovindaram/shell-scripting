@@ -2,18 +2,23 @@
 
 ID=$(id -u)
 
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
 if [ $ID -ne 0 ]
 then
-    echo "You dont have permission, Please run using Root access"
+    echo -e "$R You dont have permission, Please run using Root access $N"
     exit 1
 fi
 
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 ... FAILED"
+        echo "$2 ... $R FAILED $N"
     else
-        echo "$1 ... SUCCESS"
+        echo "$1 ... $G SUCCESS $N"
     fi
 }
 
@@ -25,6 +30,6 @@ do
         yum install $package -y
 
     else
-        echo "$package is already installed ... Skipped"
+        echo "$package is already installed ... $Y Skipped $N"
     fi
 done
