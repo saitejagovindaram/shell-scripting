@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 
-if [ ID -ne 0 ]
+if [ $ID -ne 0 ]
 then
     echo "You dont have permission, Please run using Root access"
     exit 1
@@ -14,6 +14,7 @@ validate(){
         echo "$2 ... FAILED"
     else
         echo "$1 ... SUCCESS"
+    fi
 }
 
 for package in $@
