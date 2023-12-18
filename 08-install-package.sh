@@ -7,6 +7,11 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+TIMESTAMP=$(date +%F-%T)
+LOGFILE=/tmp/$0-$TIMESTAMP.log
+
+echo -e "Script started executing at $TIMESTAMP"
+
 if [ $ID -ne 0 ]
 then
     echo -e "$R You dont have permission, Please run using Root access $N"
@@ -24,10 +29,10 @@ validate(){
 
 for package in $@
 do
-    yum list installed $package
+    yum list installed $package &>> $LOGFILE
     if [ $? -ne 0 ]
     then
-        yum install $package -y
+        yum install $package -y &>> $LOGFILE
 
     else
         echo -e "$package is already installed ... $Y Skipped $N"
