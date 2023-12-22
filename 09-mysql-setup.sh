@@ -26,22 +26,22 @@ then
     exit 2
 fi
 
-cp mongo.repo /etc/yum.repos.d/monog.repo &> $LOGFILE
+cp mongo.repo /etc/yum.repos.d/monog.repo &>> $LOGFILE
 VALIDATE $? "Copied mongoDb repo"
 
-dnf install mongodb-org -y &> $LOGFILE
+dnf install mongodb-org -y &>> $LOGFILE
 VALIDATE $? "Installing MongoDB"
 
-systemctl enable mongod &> $LOGFILE
+systemctl enable mongod &>> $LOGFILE
 VALIDATE $? "Enabling mongoDb"
 
-systemctl start mongod &> $LOGFILE
+systemctl start mongod &>> $LOGFILE
 VALIDATE $? "Starting mongodb"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $LOGFILE
 VALIDATE $? "Exposing mongo to public"
 
-systemctl restart mongod &> $LOGFILE
+systemctl restart mongod &>> $LOGFILE
 VALIDATE $? "Restarting mongodb"
 
 
