@@ -60,7 +60,7 @@ VALIDATE $? "unzipping catalogue"
 npm install &>> $LOGFILE
 VALIDATE $? "Installing npm package manager"
 
-cp ~/shell-scripting/catalogue.service /etc/systemd/system/catalogue.service
+cp /home/centos/shell-scripting/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE $? "copying catalgue service unit file"
 
 systemctl daemon-reload &>> $LOGFILE
