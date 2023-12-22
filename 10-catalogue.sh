@@ -46,10 +46,11 @@ mkdir /app
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 VALIDATE $? "downloading catalogue appliation"
 
+cd /app
 unzip /tmp/catalogue.zip &>> $LOGFILE
 VALIDATE $? "unzipping catalogue"
 
-cd /app
+
 npm install &>> $LOGFILE
 VALIDATE $? "Installing npm package manager"
 
