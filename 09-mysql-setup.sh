@@ -13,3 +13,15 @@ then
     exit 2
 fi
 
+validate(){
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 .... $R FAILED $N"
+    else
+        echo "$2 .... $G SUCCESS $N"
+}
+
+cp mongo.repo /etc/yum.repos.d/monog.repo
+validate $?, "Copied mongoDb repo"
+
+
