@@ -38,8 +38,14 @@ VALIDATE $? "Enabling nodejs 18"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "Installing nodejs 18"
 
-useradd roboshop &>> $LOGFILE
-VALIDATE $? "Adding roboshop user for app"
+id roboshop
+if [ $? -ne 0 ]
+then
+    useradd roboshop &>> $LOGFILE
+    VALIDATE $? "Adding roboshop user for app"
+else
+    echo -e "User already created so $Y skipping $N"
+fi
 
 mkdir /app
 
