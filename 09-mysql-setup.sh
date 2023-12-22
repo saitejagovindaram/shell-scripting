@@ -7,11 +7,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ $ID -ne 0 ]
-then 
-    echo -e "$R You are not a root user $N"
-    exit 2
-fi
+TIMESTAMP=$(date +%f-%T)
+LOGFILE="$0-$TIMESTAMP.log"
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -23,16 +20,22 @@ VALIDATE(){
     fi
 }
 
-cp mongo.repo /etc/yum.repos.d/monog.repo
+if [ $ID -ne 0 ]
+then 
+    echo -e "$R You are not a root user $N"
+    exit 2
+fi
+
+cp mongo.repo /etc/yum.repos.d/monog.repo &> $LOGFILE
 VALIDATE $? "Copied mongoDb repo"
 
-dnf install mongodb-org -y
+dnf install mongodb-org -y &> $LOGFILE
 VALIDATE $? "Installing MongoDB"
 
-systemctl enable mongod
+systemctl enable mongod &> $LOGFILE
 VALIDATE $? "Enabling mongoDb"
 
-systemctl start mongod
+systemctl start mongod &> $LOGFILE
 VALIDATE $? "Starting mongodb"
 
 
