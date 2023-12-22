@@ -19,6 +19,7 @@ validate(){
         echo "$2 .... $R FAILED $N"
     else
         echo "$2 .... $G SUCCESS $N"
+    fi
 }
 
 cp mongo.repo /etc/yum.repos.d/monog.repo
