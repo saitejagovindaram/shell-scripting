@@ -38,7 +38,7 @@ VALIDATE $? "Enabling nodejs 18"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "Installing nodejs 18"
 
-id roboshop #Need to check if user already created or not
+id roboshop &>> $LOGFILE #Need to check if user already created or not
 if [ $? -ne 0 ]
 then
     useradd roboshop &>> $LOGFILE
@@ -53,7 +53,7 @@ curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zi
 VALIDATE $? "downloading catalogue appliation"
 
 cd /app
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/catalogue.zip &>> $LOGFILE #need to override the files if already exist
 VALIDATE $? "unzipping catalogue"
 
 
