@@ -26,8 +26,8 @@ checkroot(){
     fi
 }
 
-id -u
-checkroot $?
+
+checkroot $(id -u)
 
 dnf install nginx -y &>> $LOGFILE
 VALIDATE $? "Installing Nginx"
