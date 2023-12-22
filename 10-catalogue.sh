@@ -38,7 +38,7 @@ VALIDATE $? "Enabling nodejs 18"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "Installing nodejs 18"
 
-id roboshop
+id roboshop #Need to check if user already created or not
 if [ $? -ne 0 ]
 then
     useradd roboshop &>> $LOGFILE
@@ -47,7 +47,7 @@ else
     echo -e "User already created so $Y skipping $N"
 fi
 
-mkdir /app
+mkdir -p /app #Need to check if directory already created or not
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 VALIDATE $? "downloading catalogue appliation"
@@ -60,7 +60,7 @@ VALIDATE $? "unzipping catalogue"
 npm install &>> $LOGFILE
 VALIDATE $? "Installing npm package manager"
 
-cp catalogue.service /etc/systemd/system/catalogue.service
+cp ~/shell-scripting/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE $? "copying catalgue service unit file"
 
 systemctl daemon-reload &>> $LOGFILE
