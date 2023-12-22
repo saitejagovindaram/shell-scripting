@@ -26,7 +26,7 @@ checkroot(){
     fi
 }
 
-ID=$(id -u)
+id -u
 checkroot $?
 
 dnf install nginx -y &>> $LOGFILE
