@@ -13,7 +13,7 @@ then
     exit 2
 fi
 
-validate() {
+VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo -e "$2 .... $R FAILED $N"
@@ -24,6 +24,6 @@ validate() {
 }
 
 cp mongo.repo /etc/yum.repos.d/monog.repo
-validate $?, "Copied mongoDb repo"
+VALIDATE $?, "Copied mongoDb repo"
 
 
