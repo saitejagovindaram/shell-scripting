@@ -32,11 +32,6 @@ checkroot $(id -u)
 dnf install nginx -y &>> $LOGFILE
 VALIDATE $? "Installing Nginx"
 
-systemctl enable nginx &>> $LOGFILE
-VALIDATE $? "Enabling Nginx"
-
-systemctl start nginx &>> $LOGFILE
-VALIDATE $? "staring Nginx"
 
 rm -rf /usr/share/nginx/html/* &> $LOGFILE
 VALIDATE $? "Removing defalut content"
@@ -52,5 +47,13 @@ VALIDATE $? "Extracting app files"
 cp /home/centos/shell-scripting/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
 VALIDATE $? "configuring reverse proxy"
 
+
+systemctl enable nginx &>> $LOGFILE
+VALIDATE $? "Enabling Nginx"
+
+systemctl start nginx &>> $LOGFILE
+VALIDATE $? "staring Nginx"
+
 systemctl restart nginx &>> $LOGFILE
 VALIDATE $? "Restart Nginx"
+
