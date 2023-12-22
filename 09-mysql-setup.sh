@@ -38,5 +38,8 @@ VALIDATE $? "Enabling mongoDb"
 systemctl start mongod &> $LOGFILE
 VALIDATE $? "Starting mongodb"
 
+set -i "/s/127.0.0.1/0.0.0.0/g" /etc/mongo.conf
+VALIDATE $? "Exposing mongo to public"
+
 
 
