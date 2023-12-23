@@ -1,4 +1,5 @@
 #!/bin/bash
 
 type pwd
-type -a pwd
+type -a ls
+type -p cd
