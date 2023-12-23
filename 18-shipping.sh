@@ -31,8 +31,14 @@ checkroot $(id -u)
 dnf install maven -y &>> $LOGFILE
 VALIDATE $? "Intalling maven"
 
-useradd roboshop &>> $LOGFILE
-VALIDATE $? "adding app user"
+id roboshop &>> $LOGFILE #Need to check if user already created or not
+if [ $? -ne 0 ]
+then
+    useradd roboshop &>> $LOGFILE
+    VALIDATE $? "Adding roboshop user for app"
+else
+    echo -e "User already created so $Y skipping $N"
+fi
 
 mkdir -p /app
 
