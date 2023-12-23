@@ -28,46 +28,46 @@ checkroot(){
 
 checkroot $(id -u)
 
-dnf install maven -y
+dnf install maven -y &>> $LOGFILE
 VALIDATE $? "Intalling maven"
 
-useradd roboshop
+useradd roboshop &>> $LOGFILE
 VALIDATE $? "adding app user"
 
 mkdir -p /app
 
 
-curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip
+curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $LOGFILE
 VALIDATE $? "Download shipping source code"
 
 cd /app
 
-unzip -o /tmp/shipping.zip
+unzip -o /tmp/shipping.zip &>> $LOGFILE
 VALIDATE $? "Unzipping project"
 
 cd /app
-mvn clean package
+mvn clean package &>> $LOGFILE
 VALIDATE $? "Creating artifact"
 
 mv target/shipping-1.0.jar shipping.jar
 
-cp /home/centos/shell-scripting/shipping.service /etc/systemd/system/shipping.serice
+cp /home/centos/shell-scripting/shipping.service /etc/systemd/system/shipping.service &>> $LOGFILE
 VALIDATE $? "Adding unit file"
 
-systemctl daemon-reload
+systemctl daemon-reload &>> $LOGFILE
 VALIDATE $? "daemon reload"
 
-systemctl enable shipping 
+systemctl enable shipping &>> $LOGFILE
 VALIDATE $? "enable shipping"
 
-systemctl start shipping
+systemctl start shipping &>> $LOGFILE
 VALIDATE $? "start shipping"
 
-dnf install mysql -y
+dnf install mysql -y &>> $LOGFILE
 VALIDATE $? "mysql install"
 
-mysql -h mysql.saitejag.site -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+mysql -h mysql.saitejag.site -uroot -pRoboShop@1 < /app/schema/shipping.sql  &>> $LOGFILE
 VALIDATE $? "load sample mysql data"
 
-systemctl restart shipping
+systemctl restart shipping &>> $LOGFILE
 VALIDATE $? "restart shipping"
