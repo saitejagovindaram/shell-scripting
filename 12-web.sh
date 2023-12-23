@@ -47,6 +47,8 @@ VALIDATE $? "Extracting app files"
 cp /home/centos/shell-scripting/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
 VALIDATE $? "configuring reverse proxy"
 
+systemctl daemon-reload &>> $LOGFILE
+VALIDATE $? "reload daemon"
 
 systemctl enable nginx &>> $LOGFILE
 VALIDATE $? "Enabling Nginx"
@@ -54,6 +56,5 @@ VALIDATE $? "Enabling Nginx"
 systemctl start nginx &>> $LOGFILE
 VALIDATE $? "staring Nginx"
 
-systemctl restart nginx &>> $LOGFILE
-VALIDATE $? "Restart Nginx"
+
 
