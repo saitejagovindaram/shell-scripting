@@ -13,7 +13,7 @@ do
 done
 
 #using while loop
-while file
+while read -r file
 do 
     echo "Deleting file: $file"
 done <<< $filesToDelete2
