@@ -78,6 +78,6 @@ VALIDATE $? "Setting up mongo repo"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "Installing mongo client"
 
-mongo --host 172.31.83.64 </app/schema/user.js &>> $LOGFILE
+mongo --host mongo.saitejag.site </app/schema/user.js &>> $LOGFILE
 VALIDATE $? "Saving user sample data to mongodb"
 
