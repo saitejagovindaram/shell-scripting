@@ -2,4 +2,4 @@
 
 type pwd
 type -a ls
-type -p cd
+type -p ls
