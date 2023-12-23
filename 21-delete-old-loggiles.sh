@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sourceDir=/tmp/shell-logs
+sourceDir=/tmp/shell-logs/
 
 filesToDelete=find $sourceDir -type f -name "*.log"
 
