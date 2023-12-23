@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sourceDir1=/tmp/shell-logs/
-sourceDir2=/tmp/shell-files/
+sourceDir2=/tmp/shell-files
 
 filesToDelete1=$(find $sourceDir1 -type f -name "*.log")
 filesToDelete2=$(find $sourceDir2 -type f -name "*.sh")
@@ -16,4 +16,4 @@ done
 while file
 do 
     echo "Deleting file: $file"
-done < $filesToDelete2
+done <<< $filesToDelete2
