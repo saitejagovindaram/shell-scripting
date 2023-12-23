@@ -42,7 +42,7 @@ done
 while read -r file
 do 
     echo "Deleting file: $file"
-done <<< $filesToDelete2
+done <<< "$filesToDelete2"
 
 # Use < when you want a command to take input from a file.
 # Use <<< when you want to pass a string directly as input to a command in the script without using an external file.
