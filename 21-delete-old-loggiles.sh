@@ -30,7 +30,7 @@ do
 done < /tmp/temp_files.txt
 
 
-while IFS= read -r file
+while IFS= read -r file #IFS=Internal field separator
 do 
     echo "Deleting file: $file"
 done <<< $filesToDelete2
