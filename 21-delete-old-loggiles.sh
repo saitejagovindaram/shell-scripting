@@ -9,6 +9,10 @@ sourceDir2=/tmp/shell-files
 filesToDelete1=$(find $sourceDir1 -type f -mtime +14 -name "*.log")
 filesToDelete2=$(find $sourceDir2 -type f -mtime +14 -name "*.sh")
 
+# -mtime +5: Matches files whose content was last modified more than 5 days ago.
+# -mtime -5: Matches files whose content was last modified less than 5 days ago.
+# -mtime 5: Matches files whose content was last modified exactly 5 days ago.
+
 #using for loop
 for file in $filesToDelete1
 do  
