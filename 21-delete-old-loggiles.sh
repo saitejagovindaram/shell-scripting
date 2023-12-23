@@ -7,7 +7,7 @@ filesToDelete1=$(find $sourceDir1 -type f -name "*.log")
 filesToDelete2=$(find $sourceDir2 -type f -name "*.sh")
 
 #using for loop
-for file in $filesToDelete
+for file in $filesToDelete1
 do  
     echo "Deleting file: $file"
 done
