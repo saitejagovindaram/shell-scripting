@@ -2,7 +2,7 @@
 
 sourceDir=/tmp/shell-logs/
 
-filesToDelete=$(find $sourceDir/. -type f -name "*.log")
+filesToDelete=$(find $sourceDir -type f -name "*.log")
 
 for file in $filesToDelete
 do  
