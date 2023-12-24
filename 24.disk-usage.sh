@@ -1,11 +1,15 @@
 #!/bin/bash
 
 volumesData=$( df -hT | grep -vE 'tmp|File')
-
+message=""
 while IFS= read line
 do
     diskName=$(echo $line | awk -F ' ' '{print $1F}')
     usage=$(echo $line | awk -F ' ' '{print $6F}' | awk -F % '{print $1F}')
-    echo $diskName
-    echo $usage
+    if [ $usage -gt 1 ]
+    then
+        message=$message+"High Disk usage on $diskName: $usage /n"
+    
 done <<< "$volumesData"
+
+echo $message
