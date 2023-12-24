@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file=tranpose.txt
+file=transpose.txt
 
 # #approach 1, not suitable for large dataset
 # col1=$(awk -F ' '  '{print $1F}' transpose.txt)
