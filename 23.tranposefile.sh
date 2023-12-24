@@ -45,7 +45,7 @@ outArr=()
 for ((i=1; i<=$NoOfCols; i++))
 do
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
-    echo "$colValues"
+    # echo "$colValues"
     mapfile -t inArr <<< "$colValues"
     echo "inArr: ${inArr[@]}"
     outArr+=("${inArr[@]}")
@@ -53,3 +53,8 @@ done
 
 echo
 echo "outArr: ${outArr[@]}"
+for arr in "${outArr[@]}"
+do  
+    echo arr
+done
+
