@@ -24,7 +24,8 @@ NoOfCols=$(cat transpose.txt | head -n 1 | awk '{print NF}')
 
 for ((i=0; i <$NoOfCols; i++))
 do
-    echo $(($i + 1))
+    colNumber=$(($i + 1))
+    colValues=$(awk -v col="$colNumber" '{print $col}' $file)
 done
 
 
