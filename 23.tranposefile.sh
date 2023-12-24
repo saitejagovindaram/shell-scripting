@@ -47,7 +47,10 @@ do
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
     echo $colValues
     IFS=' ' read -r -a inArr <<< $colValues
-    echo "inArr: ${inArr[@]}"
+    for element in "${inArr[@]}"
+    do
+        echo "val: $element"
+    done
     outArr+=("${inArr[@]}")
 done
 
