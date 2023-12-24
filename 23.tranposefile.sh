@@ -22,7 +22,7 @@ cat $file | head -n 1 | awk '{print NF}' # gives no of columns
 
 NoOfCols=$(cat transpose.txt | head -n 1 | awk '{print NF}')
 
-for col in NoOfCols
+for col in $NoOfCols
 do
     echo $col
 done
