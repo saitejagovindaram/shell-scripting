@@ -44,7 +44,7 @@ do
     colNumber=$(($i + 1))
     colValues=$(awk -v col="$colNumber" '{print $col}' $file)
     echo "colValues: $colValues"
-    read -r -a inArr <<< "$colValues"
+    IFS=' ' read -r -a inArr <<< "$colValues"
     echo "inArr: ${inArr[@]}"
     outArr+=("$inArr")
 done
