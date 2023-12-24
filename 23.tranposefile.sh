@@ -55,6 +55,6 @@ echo
 echo "outArr: ${outArr[@]}"
 for arr in "${outArr[@]}"
 do  
-    echo arr
+    echo $arr
 done
 
