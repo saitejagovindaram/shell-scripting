@@ -1,3 +1,4 @@
-name age
-arya 21
-ravan 30
+name age height
+arya 21 32
+ravan 30 43
+saiteja 43 54
