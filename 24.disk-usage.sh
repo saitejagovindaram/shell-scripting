@@ -14,3 +14,5 @@ do
 done <<< "$volumesData"
 
 echo -e $message
+
+sh mail.sh "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com" "ALERT High Disk Usage"
