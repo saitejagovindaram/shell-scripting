@@ -43,7 +43,8 @@ do
     # echo "lenght of string: ${#val}"
 done
 
-
+echo
+echo
 #appraoch3
 
 outArr=()
