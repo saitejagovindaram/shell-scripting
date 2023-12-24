@@ -9,7 +9,7 @@ for line in $col1
 do
     echo -n "$line " 
 done
-
+echo
 for line in $col2
 do
     echo -n "$line " 
