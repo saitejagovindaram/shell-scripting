@@ -9,7 +9,7 @@ col2=$(awk -F ' '  '{print $2F}' transpose.txt)
 echo $col1
 echo $col2
 echo
-echo
+echo $(type $col2)
 
 # for line in $col1
 # do
