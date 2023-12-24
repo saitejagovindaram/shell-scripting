@@ -9,6 +9,7 @@ do
     if [ $usage -gt 1 ]
     then
         message=$message+"High Disk usage on $diskName: $usage /n"
+    fi
     
 done <<< "$volumesData"
 
