@@ -41,5 +41,6 @@ echo "lenght of array: ${#myarr[@]}"
 for val in "${myarr[@]}"
 do
     echo $val
+    echo "lenght: ${#val}"
 done
 
