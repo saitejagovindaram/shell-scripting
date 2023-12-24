@@ -6,8 +6,11 @@ file=transpose.txt
 col1=$(awk -F ' '  '{print $1F}' transpose.txt)
 col2=$(awk -F ' '  '{print $2F}' transpose.txt)
 
+#this will give us out output
 echo $col1
 echo $col2
+
+
 echo
 echo
 
