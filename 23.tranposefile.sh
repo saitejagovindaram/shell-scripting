@@ -7,5 +7,5 @@ col2=$(awk -F ' '  '{print $2F}' transpose.txt)
 
 for line in $col1
 do
-    echo $line
+    echo -n "$line " 
 done
