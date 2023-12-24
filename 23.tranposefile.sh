@@ -22,7 +22,7 @@ for ((i=1; i<=$NoOfCols; i++))
 do
     echo $i
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
-    echo $colValues #eg: Name Age Height
+    echo "colValues: $colValues" #eg: Name Age Height
     myarr+=("$colValues") # adding string to array
     # echo "${#colValues}" #gives the length of string
 done
