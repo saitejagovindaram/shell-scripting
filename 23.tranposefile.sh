@@ -20,7 +20,6 @@ echo "NoOfCols: $NoOfCols"
 myarr=()
 for ((i=1; i<=$NoOfCols; i++))
 do
-    echo $i
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
     echo $colValues #eg: Name Age Height
     # echo "$colValues" #eg: Name
@@ -45,10 +44,9 @@ echo
 outArr=()
 for ((i=1; i<=$NoOfCols; i++))
 do
-    echo $i
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
     echo $colValues
-    IFS=' ' read -r -a inArr <<< $colValues
+    IFS='\n' read -r -a inArr <<< $colValues
     echo "inArr: ${inArr[@]}"
     outArr+=("$inArr")
 done
