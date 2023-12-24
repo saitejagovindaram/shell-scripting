@@ -17,14 +17,14 @@ file=transpose.txt
 # done
 
 ###############
-cat $file | wc -l # gives no of rows
-cat $file | head -n 1 | awk '{print NF}' # gives no of columns
+# cat $file | wc -l # gives no of rows
+# cat $file | head -n 1 | awk '{print NF}' # gives no of columns
 
 NoOfCols=$(cat transpose.txt | head -n 1 | awk '{print NF}')
 
-for col in $NoOfCols
+for ((i=0; i <$NoOfCols; i++))
 do
-    echo $col
+    echo $i
 done
 
 
