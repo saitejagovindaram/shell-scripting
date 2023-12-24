@@ -13,4 +13,4 @@ do
     
 done <<< "$volumesData"
 
-echo $message
+echo -e $message
