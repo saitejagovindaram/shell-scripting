@@ -36,4 +36,10 @@ do
     # echo "${#colValues}" #gives the length of string
 done
 
-echo -e "myarr: ${myarr[@]}"
+# echo -e "myarr: ${myarr[@]}"
+
+for val in "${myarr[@]}"
+do
+    echo $val
+done
+
