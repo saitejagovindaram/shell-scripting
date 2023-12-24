@@ -46,4 +46,8 @@ do
     echo "colValues: $colValues"
     read -r -a inArr <<< "$colValues"
     echo "inArr: ${inArr[@]}"
+    outArr+=("$inArr")
 done
+
+echo
+echo "outArr: ${outArr[@]}"
