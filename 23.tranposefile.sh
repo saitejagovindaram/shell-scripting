@@ -36,4 +36,4 @@ do
     # echo "${#colValues}" #gives the length of string
 done
 
-echo "myarr: $myarr"
+echo -e "myarr: $myarr"
