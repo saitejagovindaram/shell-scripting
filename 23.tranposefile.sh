@@ -2,9 +2,14 @@
 
 file=transpose.txt
 
-# #approach 1, not suitable for large dataset
-# col1=$(awk -F ' '  '{print $1F}' transpose.txt)
-# col2=$(awk -F ' '  '{print $2F}' transpose.txt)
+#approach 1, not suitable for large dataset
+col1=$(awk -F ' '  '{print $1F}' transpose.txt)
+col2=$(awk -F ' '  '{print $2F}' transpose.txt)
+
+echo $col1
+echo $col2
+echo
+echo
 
 # for line in $col1
 # do
