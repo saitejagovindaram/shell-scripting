@@ -41,6 +41,7 @@ echo
 outArr=()
 for ((i=0; i<$NoOfCols; i++))
 do
+    echo "djldjfl: $(awk -F ' ' -v col="$i" '{print $col}' transpose.txt)"
     colNumber=$(($i + 1))
     colValues=$(awk -v col="$colNumber" '{print $col}' $file)
     echo "colValues: $colValues"
