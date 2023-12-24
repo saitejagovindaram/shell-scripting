@@ -27,7 +27,8 @@ done
 #appraoch2
 # cat $file | wc -l # gives no of rows
 # cat $file | head -n 1 | awk '{print NF}' # gives no of columns
-
+echo
+echo
 NoOfCols=$(cat $file | head -n 1 | awk '{print NF}')
 echo "NoOfCols: $NoOfCols"
 myarr=()
