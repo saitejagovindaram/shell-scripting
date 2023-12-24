@@ -37,7 +37,7 @@ do
 done
 
 # echo -e "myarr: ${myarr[@]}"
-
+echo "lenght of array: ${#myarr[@]}"
 for val in "${myarr[@]}"
 do
     echo $val
