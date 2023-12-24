@@ -17,7 +17,7 @@ do
 done
 
 ###############
-cat trasnpose.txt | wc -l # gives no of rows
+cat transpose.txt | wc -l # gives no of rows
 cat transpose.txt | head -n 1 | awk '{print NF}' # gives no of columns
 
 NoOfCols=$(cat transpose.txt | head -n 1 | awk '{print NF}')
