@@ -47,10 +47,7 @@ do
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
     echo "$colValues"
     mapfile -t inArr <<< "$colValues"
-    for element in "${inArr[@]}"
-    do
-        echo "val: $element"
-    done
+    echo "${inArr[@]}"
     outArr+=("${inArr[@]}")
 done
 
