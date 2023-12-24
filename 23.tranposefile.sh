@@ -27,10 +27,9 @@ done
 
 NoOfCols=$(cat $file | head -n 1 | awk '{print NF}')
 myarr=()
-for ((i=0; i<$NoOfCols; i++))
+for ((i=1; i<=$NoOfCols; i++))
 do
-    colNumber=$(($i + 1))
-    colValues=$(awk -v col="$colNumber" '{print $col}' $file) #returns string with space separated col values
+    colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
     echo $colValues #eg: Name Age Height
     myarr+=("$colValues") # adding string to array
     # echo "${#colValues}" #gives the length of string
