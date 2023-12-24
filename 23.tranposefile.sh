@@ -32,7 +32,7 @@ do
     colNumber=$(($i + 1))
     colValues=$(awk -v col="$colNumber" '{print $col}' $file)
     echo $colValues
-    echo $(declare -p $colValues)
+    echo "${#colValues}"
 done
 
 
