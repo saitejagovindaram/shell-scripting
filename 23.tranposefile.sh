@@ -25,14 +25,15 @@ echo
 # cat $file | wc -l # gives no of rows
 # cat $file | head -n 1 | awk '{print NF}' # gives no of columns
 
-NoOfCols=$(cat transpose.txt | head -n 1 | awk '{print NF}')
-
+NoOfCols=$(cat $file | head -n 1 | awk '{print NF}')
+myarr=()
 for ((i=0; i <$NoOfCols; i++))
 do
     colNumber=$(($i + 1))
     colValues=$(awk -v col="$colNumber" '{print $col}' $file)
     echo $colValues
-    echo "${#colValues}"
+    myarr[0]=$colValues
+    # echo "${#colValues}" #gives the length of string
 done
 
-
+echo "myarr: $myarr"
