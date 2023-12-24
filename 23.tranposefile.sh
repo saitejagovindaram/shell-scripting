@@ -44,9 +44,9 @@ do
     colNumber=$(($i + 1))
     colValues=$(awk -F ' '  '{print $1F}' transpose.txt)
     echo "$colValues"
-    IFS=' ' read -r -a inArr <<< "$colValues"
-    echo "inArr: ${inArr[@]}"
-    outArr+=("$inArr")
+    # IFS=' ' read -r -a inArr <<< "$colValues"
+    # echo "inArr: ${inArr[@]}"
+    # outArr+=("$inArr")
 done
 
 echo
