@@ -35,7 +35,8 @@ do
     myarr+=("$colValues") # adding string to array
     # echo "${#colValues}" #gives the length of string
 done
-
+echo
+echo
 echo "lenght of array: ${#myarr[@]}"
 for val in "${myarr[@]}" 
 do
