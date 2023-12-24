@@ -15,6 +15,7 @@ for line in $col2
 do
     echo -n "$line  " 
 done
+echo
 
 ###############
 cat transpose.txt | wc -l # gives no of rows
