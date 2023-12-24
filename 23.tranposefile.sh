@@ -21,6 +21,7 @@ myarr=()
 for ((i=1; i<=$NoOfCols; i++))
 do
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
+    #echo $colValues and echo "$colValues" --> both are different
     echo $colValues #eg: Name Age Height
     # echo "$colValues" #eg: Name
     #                        Age
@@ -48,9 +49,9 @@ do
     colValues=$(awk -v col="$i" '{print $col}' $file) #returns string with space separated col values
     # echo "$colValues"
     mapfile -t inArr <<< "$colValues"
-    echo "inArr: ${inArr[@]}"
-    outArr[$index]=("${inArr[@]}")
-    index+=1
+    echo "${inArr[@]}"
+    # outArr[$index]=("${inArr[@]}") # this will give as bash not supporting multi dimentional array, i.e arrays with in array, we need to convert array values to string contat and store it.
+    # index+=1
 done
 
 echo
