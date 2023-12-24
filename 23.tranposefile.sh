@@ -42,9 +42,9 @@ outArr=()
 for ((i=0; i<$NoOfCols; i++))
 do
     # colNumber=$(($i + 1))
-    colValues=$(awk -F ' '  '{print $1}' transpose.txt)
+    c1=$(awk -F ' '  '{print $1}' transpose.txt)
     # colValues=$(awk -v col="$i" '{print $col}' $file)
-    echo "$colValues"
+    echo "$c1"
     # IFS=' ' read -r -a inArr <<< "$colValues"
     # echo "inArr: ${inArr[@]}"
     # outArr+=("$inArr")
