@@ -8,7 +8,7 @@ do
     usage=$(echo $line | awk -F ' ' '{print $6F}' | awk -F % '{print $1F}')
     if [ $usage -gt 1 ]
     then
-        message="$message High Disk usage on $diskName: $usage\n"
+        message="$message\High Disk usage on $diskName: $usage\n"
     fi
     
 done <<< "$volumesData"
