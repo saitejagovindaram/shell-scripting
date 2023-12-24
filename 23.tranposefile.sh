@@ -26,6 +26,7 @@ done
 # cat $file | head -n 1 | awk '{print NF}' # gives no of columns
 
 NoOfCols=$(cat $file | head -n 1 | awk '{print NF}')
+echo "NoOfCols: $NoOfCols"
 myarr=()
 for ((i=1; i<=$NoOfCols; i++))
 do
