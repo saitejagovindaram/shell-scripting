@@ -43,6 +43,6 @@ for ((i=0; i<$NoOfCols; i++))
 do
     colNumber=$(($i + 1))
     colValues=$(awk -v col="$colNumber" '{print $col}' $file)
-    IFs=' ' read -r -a inArr <<< "$colValues"
+    read -r -a inArr <<< "$colValues"
     echo "inArr: ${inArr[@]}"
 done
