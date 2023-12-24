@@ -32,7 +32,7 @@ do
     colNumber=$(($i + 1))
     colValues=$(awk -v col="$colNumber" '{print $col}' $file)
     echo $colValues
-    myarr[$i]=$colValues
+    myarr+="$colValues"
     # echo "${#colValues}" #gives the length of string
 done
 
