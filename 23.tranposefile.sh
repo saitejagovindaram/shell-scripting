@@ -9,7 +9,7 @@ col2=$(awk -F ' '  '{print $2F}' transpose.txt)
 echo $col1
 echo $col2
 echo
-echo $(type $col2)
+echo
 
 # for line in $col1
 # do
@@ -32,6 +32,7 @@ do
     colNumber=$(($i + 1))
     colValues=$(awk -v col="$colNumber" '{print $col}' $file)
     echo $colValues
+    echo $(declare -p $colValues)
 done
 
 
