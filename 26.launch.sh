@@ -19,8 +19,6 @@ do
     if [ $svc == "web" ]; then
         # aws route53 change-resource-record-sets --hosted-zone-id "Z0126075383L1GOMB15Q6" --change-batch "{"Changes":[{"Action":"CREATE","ResourceRecordSet":{"Type":"A","TTL":1,"ResourceRecords":[{"Value":"$RESULT.PublicIpAddress"}]}}]}"
         echo "$RESULT.Instances[0].PublicIpAddress"
-    
-    else
 
     fi
 done
