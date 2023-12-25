@@ -8,7 +8,7 @@ usage(){
     echo "-w, default value is Good Morning"
 }
 
-while getOpts "n:w:h" flag
+while getopts "n:w:h" flag
 do
     case $flag in
         n) 
