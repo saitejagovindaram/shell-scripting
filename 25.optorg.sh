@@ -29,7 +29,7 @@ if [ $OPTIND -eq 1 ] && [ -z $Name ]; then
     usage
 fi
 
-if [ -z $Name ] || [ -z $wishes ]; then
+if [ -z "$Name" ] || [ -z "$wishes" ]; then
     echo "Name is empty"
     exit 1
 fi
