@@ -17,6 +17,6 @@ do
             wishes="$OPTORGS";;
         h)
             usage; exit;;
-    easc
+    esac
 
 done
