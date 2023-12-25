@@ -8,8 +8,7 @@ usage(){
     echo "-w, default value is Good Morning"
 }
 
-while getopts "n:w:h" flag
-do
+while getopts "n:w:h" flag; do
     case $flag in
         n) 
             Name="$OPTARG";;
@@ -17,15 +16,13 @@ do
             wishes="$OPTARG";;
         h)
             usage; exit;;
-        :) 
-            usage; exit;;
-        \?) 
-            echo "invalid options: -"$OPTARG"" >&2; 
-            usage; 
-            exit;;
-        
+        :)
+            echo "Option -$OPTARG requires an argument." >&2
+            usage; exit 1;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            usage; exit 1;;
     esac
-
 done
 
 if [ $OPTIND -eq 1 ] && [ -z $Name ]; then
