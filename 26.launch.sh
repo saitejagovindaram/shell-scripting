@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SERVICE=("web" "catalogue" "mongoDB" "shipping")
+SERVICES=("web" "catalogue" "mongoDB" "shipping")
 
-while read -r svc
+for svc in ${SERVICES[@]}
 do
     echo $svc
-done <<< $SERVICE
+done
