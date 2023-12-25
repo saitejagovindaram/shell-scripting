@@ -16,11 +16,11 @@ while getopts "n:w:h" flag; do
             wishes="$OPTARG";;
         h)
             usage; exit;;
-        :)
-            echo "Option -$OPTARG requires an argument." >&2
-            usage; exit 1;;
+        # :)
+        #     echo "Option -$OPTARG requires an argument." >&2
+        #     usage; exit 1;;
         \?)
-            echo "Invalid option: -$OPTARG" >&2
+            # echo "Invalid option: -$OPTARG" >&2
             usage; exit 1;;
     esac
 done
