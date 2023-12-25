@@ -2,7 +2,7 @@
 
 SERVICE=("web" "catalogue" "mongoDB" "shipping")
 
-while read svc
+while read -r svc
 do
     echo $svc
 done <<< "$SERVICE"
