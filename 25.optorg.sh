@@ -29,9 +29,9 @@ done
 
 if [ $OPTIND -eq 1 ] && [ -z $Name ]; then
     usage
-    exit 1
 fi
 
 if [ -z $Name ]; then
     echo "Name is empty"
+    exit 1
 fi
