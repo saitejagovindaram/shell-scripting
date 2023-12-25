@@ -20,7 +20,7 @@ do
         :) 
             usage; exit;;
         \?) 
-            # echo "invalid options: -"$OPTARG"" >&2; 
+            echo "invalid options: -"$OPTARG"" >&2; 
             usage; 
             exit;;
         
