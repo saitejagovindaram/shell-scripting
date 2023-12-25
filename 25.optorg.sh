@@ -17,6 +17,7 @@ do
             wishes="$OPTORGS";;
         h)
             usage; exit;;
+        \?) echo "invalid options: -"$OPTARG"" >&2; USAGE; exit;;
     esac
 
 done
