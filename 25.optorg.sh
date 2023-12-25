@@ -21,7 +21,7 @@ do
             usage; exit;;
         \?) 
             # echo "invalid options: -"$OPTARG"" >&2; 
-            # usage; 
+            usage; 
             exit;;
         
     esac
