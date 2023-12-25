@@ -12,13 +12,16 @@ while getopts "n:w:h" flag
 do
     case $flag in
         n) 
-            Name="$OPTORGS";;
+            Name="$OPTARG";;
         w) 
-            wishes="$OPTORGS";;
+            wishes="$OPTARG";;
         h)
             usage; exit;;
-        :) usage; exit;;
-        \?) echo "invalid options: -"$OPTARGS"" >&2; usage; exit;;
+        :) 
+            usage; exit;;
+        \?) 
+            echo "invalid options: -"$OPTARG"" >&2; 
+            usage; exit;;
         
     esac
 
