@@ -19,9 +19,10 @@ do
             usage; exit;;
         :) 
             usage; exit;;
-        # \?) 
-        #     echo "invalid options: -"$OPTARG"" >&2; 
-        #     usage; exit;;
+        \?) 
+            # echo "invalid options: -"$OPTARG"" >&2; 
+            # usage; 
+            exit;;
         
     esac
 
