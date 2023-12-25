@@ -18,6 +18,7 @@ do
         h)
             usage; exit;;
         \?) echo "invalid options: -"$OPTARG"" >&2; usage; exit;;
+        :) usage; exit;;
     esac
 
 done
