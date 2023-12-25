@@ -18,8 +18,10 @@ do
 
     if [ $svc == "web" ]; then
         # aws route53 change-resource-record-sets --hosted-zone-id "Z0126075383L1GOMB15Q6" --change-batch "{"Changes":[{"Action":"CREATE","ResourceRecordSet":{"Type":"A","TTL":1,"ResourceRecords":[{"Value":"$RESULT.PublicIpAddress"}]}}]}"
-
-        PUBLIC_IP=$(echo "$RESULT" | jq -r '.Instances[0].PublicIpAddress')
+        
+        Instance_id=$(echo "$RESULT" | jq -r '.Instances[0].InstanceId')
+        # aws ec2 describe-instances --instance-ids $Instance_id
+        # use --query to get the public ip
         echo "$PUBLIC_IP"
 
     fi
