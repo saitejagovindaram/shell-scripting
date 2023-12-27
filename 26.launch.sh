@@ -32,12 +32,12 @@ do
                 {
                     "Action"              : "UPSERT",
                     "ResourceRecordSet"  : {
-                        "Name"              : "'$svc'.'$DOMAIN_NAME'",
+                        "Name"              : '$svc'.'$DOMAIN_NAME',
                         "Type"             : "A",
                         "TTL"              : 1,
                         "ResourceRecords"  : [
                             {
-                                "Value"         : "'$PUBLIC_IP'"
+                                "Value"         : '$PUBLIC_IP'
                             }
                         ]
                     }
