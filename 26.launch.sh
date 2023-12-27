@@ -20,7 +20,7 @@ do
 
     Instance_id=$(echo "$RESULT" | jq -r '.Instances[0].InstanceId')
     if [ $svc == "web" ]; then
-        PUBLIC_IP=$(aws ec2 describe-instances --instance-ids i-064f57e1e40dbfdef --query "Reservations[0].Instances[0].PublicIpAddress")
+        PUBLIC_IP=$(aws ec2 describe-instances --instance-ids $Instance_id --query "Reservations[0].Instances[0].PublicIpAddress")
         
         # aws ec2 describe-instances --instance-ids $Instance_id
         # use --query to get the public ip
@@ -46,7 +46,7 @@ do
         }'
 
     else
-        PRIVATE_IP=$(aws ec2 describe-instances --instance-ids i-064f57e1e40dbfdef --query "Reservations[0].Instances[0].PrivateIpAddress")
+        PRIVATE_IP=$(aws ec2 describe-instances --instance-ids $Instance_id --query "Reservations[0].Instances[0].PrivateIpAddress")
         echo "PRIVATEIP: $PRIVATE_IP"
         aws route53 change-resource-record-sets --hosted-zone-id "$ZONE_ID"  --change-batch '{
             "Comment": "Creating a record set for cognito endpoint",
