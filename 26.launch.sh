@@ -27,43 +27,45 @@ do
         echo "PUBLICIP: $PUBLIC_IP"
         
 
-        aws route53 change-resource-record-sets \
-        --hosted-zone-id $ZONE_ID \
-        --change-batch '
-        {
-            "Comment": "Creating a record set for cognito endpoint"
-            ,"Changes": [{
-            "Action"              : "UPSERT"
-            ,"ResourceRecordSet"  : {
-                "Name"              : "'$svc'.'$DOMAIN_NAME'"
-                ,"Type"             : "A"
-                ,"TTL"              : 1
-                ,"ResourceRecords"  : [{
-                    "Value"         : "'$PUBLIC_IP'"
-                }]
-            }
-            }]
+        aws route53 change-resource-record-sets         --hosted-zone-id "$ZONE_ID"  --change-batch '{
+            "Comment": "Creating a record set for cognito endpoint",
+            "Changes": [
+                {
+                    "Action"              : "UPSERT",
+                    "ResourceRecordSet"  : {
+                        "Name"              : "'$svc'.'$DOMAIN_NAME'",
+                        "Type"             : "A",
+                        "TTL"              : 1,
+                        "ResourceRecords"  : [
+                            {
+                                "Value"         : "'$PUBLIC_IP'"
+                            }
+                        ]
+                    }
+                }
+            ]
         }'
 
     else
         PRIVATE_IP=$(aws ec2 describe-instances --instance-ids i-064f57e1e40dbfdef --query "Reservations[0].Instances[0].PrivateIpAddress")
         echo "PRIVATEIP: $PRIVATE_IP"
-        aws route53 change-resource-record-sets \
-        --hosted-zone-id $ZONE_ID \
-        --change-batch '
-        {
-            "Comment": "Creating a record set for cognito endpoint"
-            ,"Changes": [{
-            "Action"              : "UPSERT"
-            ,"ResourceRecordSet"  : {
-                "Name"              : "'$svc'.'$DOMAIN_NAME'"
-                ,"Type"             : "A"
-                ,"TTL"              : 1
-                ,"ResourceRecords"  : [{
-                    "Value"         : "'$PRIVATE_IP'"
-                }]
-            }
-            }]
+        aws route53 change-resource-record-sets         --hosted-zone-id "$ZONE_ID"  --change-batch '{
+            "Comment": "Creating a record set for cognito endpoint",
+            "Changes": [
+                {
+                    "Action"              : "UPSERT",
+                    "ResourceRecordSet"  : {
+                        "Name"              : "'$svc'.'$DOMAIN_NAME'",
+                        "Type"             : "A",
+                        "TTL"              : 1,
+                        "ResourceRecords"  : [
+                            {
+                                "Value"         : "'$PRIVATE_IP'"
+                            }
+                        ]
+                    }
+                }
+            ]
         }'
     fi
 done
